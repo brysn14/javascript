@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steen papier Schaar</title>
+  </head>
+  <body>
+    <h1>Computer</h1>
+    <span id="computer"></span>
+    <br />
+    <h1>Jouw keuze:</h1>
+    <span id="human"></span>
+    <br />
+    <h1>Uitkomst:</h1>
+    <span id="result"></span>
+    <br />
+    <button id="Steen">Steen</button>
+    <button id="Papier">Papier</button>
+    <button id="Schaar">Schaar</button>
+    <script>
+      const humanOutput = document.querySelector("#human");
+      const computerOutput = document.querySelector("#computer");
+      const resultOutput = document.querySelector("#result");
+      const steenBtn = document.querySelector("#Steen");
+      const papierBtn = document.querySelector("#Papier");
+      const schaarBtn = document.querySelector("#Schaar");
+
+      let humanChoice = "";
+      let computerChoice = "";
+      humanOutput.innerHTML = "Jouw Keuze Komt Hier!, maak je keuze";
+
+      steenBtn.addEventListener("click", function (event) {
+        humanChoice = event.target.id;
+        humanOutput.innerHTML = humanChoice;
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+        if (randomNumber === 1) {
+          computerChoice = "steen";
+        }
+        if (randomNumber === 2) {
+          computerChoice = "papier";
+        }
+        if (randomNumber === 3) {
+          computerChoice = "schaar";
+        }
+
+        computerOutput.innerHTML = computerChoice;
+        if (humanChoice === "Steen") {
+          if (computerChoice === "steen") {
+            resultOutput.innerHTML = "Gelijkspel!";
+          } else if (computerChoice === "papier") {
+            resultOutput.innerHTML = "Computer wint!";
+          } else {
+            resultOutput.innerHTML = "Jij wint!";
+          }
+        } else if (humanChoice === "Papier") {
+          if (computerChoice === "steen") {
+            resultOutput.innerHTML = "Jij wint!";
+          } else if (computerChoice === "papier") {
+            resultOutput.innerHTML = "Gelijkspel!";
+          } else {
+            resultOutput.innerHTML = "Computer wint!";
+          }
+        } else if (humanChoice === "Schaar") {
+          if (computerChoice === "steen") {
+            resultOutput.innerHTML = "Computer wint!";
+          } else if (computerChoice === "papier") {
+            resultOutput.innerHTML = "Jij wint!";
+          } else {
+            resultOutput.innerHTML = "Gelijkspel!";
+          }
+        }
+      });
+
+      papierBtn.addEventListener("click", function (event) {
+        humanChoice = event.target.id;
+        humanOutput.innerHTML = humanChoice;
+      
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+if (randomNumber === 1) {
+  computerChoice = "steen";
+}
+if (randomNumber === 2) {
+  computerChoice = "papier";
+}
+if (randomNumber === 3) {
+  computerChoice = "schaar";
+}
+
+computerOutput.innerHTML = computerChoice;
+if (humanChoice === "Steen") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Gelijkspel!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Computer wint!";
+  } else {
+    resultOutput.innerHTML = "Jij wint!";
+  }
+} else if (humanChoice === "Papier") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Jij wint!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Gelijkspel!";
+  } else {
+    resultOutput.innerHTML = "Computer wint!";
+  }
+} else if (humanChoice === "Schaar") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Computer wint!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Jij wint!";
+  } else {
+    resultOutput.innerHTML = "Gelijkspel!";
+  }
+}
+});
+      schaarBtn.addEventListener("click", function (event) {
+        humanChoice = event.target.id;
+        humanOutput.innerHTML = humanChoice;
+      
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+if (randomNumber === 1) {
+  computerChoice = "steen";
+}
+if (randomNumber === 2) {
+  computerChoice = "papier";
+}
+if (randomNumber === 3) {
+  computerChoice = "schaar";
+}
+
+computerOutput.innerHTML = computerChoice;
+if (humanChoice === "Steen") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Gelijkspel!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Computer wint!";
+  } else {
+    resultOutput.innerHTML = "Jij wint!";
+  }
+} else if (humanChoice === "Papier") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Jij wint!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Gelijkspel!";
+  } else {
+    resultOutput.innerHTML = "Computer wint!";
+  }
+} else if (humanChoice === "Schaar") {
+  if (computerChoice === "steen") {
+    resultOutput.innerHTML = "Computer wint!";
+  } else if (computerChoice === "papier") {
+    resultOutput.innerHTML = "Jij wint!";
+  } else {
+    resultOutput.innerHTML = "Gelijkspel!";
+  }
+}
+});
+    </script>
+  </body>
+</html>
