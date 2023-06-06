@@ -16,66 +16,64 @@
     <h1>Uitkomst:</h1>
     <span id="result"></span>
     <br />
-    <button id="Steen">Steen</button>
-    <button id="Papier">Papier</button>
-    <button id="Schaar">Schaar</button>
+    <div id="buttons">
+      <button id="Steen">Steen</button>
+      <button id="Papier">Papier</button>
+      <button id="Schaar">Schaar</button>
+    </div>
     <script>
       const humanOutput = document.querySelector("#human");
       const computerOutput = document.querySelector("#computer");
       const resultOutput = document.querySelector("#result");
-      const steenBtn = document.querySelector("#Steen");
-      const papierBtn = document.querySelector("#Papier");
-      const schaarBtn = document.querySelector("#Schaar");
+      const buttonsContainer = document.querySelector("#buttons");
 
       let humanChoice = "";
       let computerChoice = "";
       humanOutput.innerHTML = "Jouw Keuze Komt Hier!, maak je keuze";
 
-      function handleButtonClick(event) {
-        humanChoice = event.target.id;
-        humanOutput.innerHTML = humanChoice;
-      
-        const randomNumber = Math.floor(Math.random() * 3) + 1;
+      buttonsContainer.addEventListener("click", function (event) {
+        if (event.target.tagName === "BUTTON") {
+          humanChoice = event.target.id;
+          humanOutput.innerHTML = humanChoice;
 
-        if (randomNumber === 1) {
-          computerChoice = "steen";
-        } else if (randomNumber === 2) {
-          computerChoice = "papier";
-        } else {
-          computerChoice = "schaar";
+          const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+          if (randomNumber === 1) {
+            computerChoice = "steen";
+          } else if (randomNumber === 2) {
+            computerChoice = "papier";
+          } else {
+            computerChoice = "schaar";
+          }
+
+          computerOutput.innerHTML = computerChoice;
+          if (humanChoice === "Steen") {
+            if (computerChoice === "steen") {
+              resultOutput.innerHTML = "Gelijkspel!";
+            } else if (computerChoice === "papier") {
+              resultOutput.innerHTML = "Computer wint!";
+            } else {
+              resultOutput.innerHTML = "Jij wint!";
+            }
+          } else if (humanChoice === "Papier") {
+            if (computerChoice === "steen") {
+              resultOutput.innerHTML = "Jij wint!";
+            } else if (computerChoice === "papier") {
+              resultOutput.innerHTML = "Gelijkspel!";
+            } else {
+              resultOutput.innerHTML = "Computer wint!";
+            }
+          } else if (humanChoice === "Schaar") {
+            if (computerChoice === "steen") {
+              resultOutput.innerHTML = "Computer wint!";
+            } else if (computerChoice === "papier") {
+              resultOutput.innerHTML = "Jij wint!";
+            } else {
+              resultOutput.innerHTML = "Gelijkspel!";
+            }
+          }
         }
-
-        computerOutput.innerHTML = computerChoice;
-        if (humanChoice === "Steen") {
-          if (computerChoice === "steen") {
-            resultOutput.innerHTML = "Gelijkspel!";
-          } else if (computerChoice === "papier") {
-            resultOutput.innerHTML = "Computer wint!";
-          } else {
-            resultOutput.innerHTML = "Jij wint!";
-          }
-        } else if (humanChoice === "Papier") {
-          if (computerChoice === "steen") {
-            resultOutput.innerHTML = "Jij wint!";
-          } else if (computerChoice === "papier") {
-            resultOutput.innerHTML = "Gelijkspel!";
-          } else {
-            resultOutput.innerHTML = "Computer wint!";
-          }
-        } else if (humanChoice === "Schaar") {
-          if (computerChoice === "steen") {
-            resultOutput.innerHTML = "Computer wint!";
-          } else if (computerChoice === "papier") {
-            resultOutput.innerHTML = "Jij wint!";
-          } else {
-            resultOutput.innerHTML = "Gelijkspel!";
-          }
-        }
-      }
-
-      steenBtn.addEventListener("click", handleButtonClick);
-      papierBtn.addEventListener("click", handleButtonClick);
-      schaarBtn.addEventListener("click", handleButtonClick);
+      });
     </script>
   </body>
 </html>
