@@ -31,18 +31,17 @@
       let computerChoice = "";
       humanOutput.innerHTML = "Jouw Keuze Komt Hier!, maak je keuze";
 
-      steenBtn.addEventListener("click", function (event) {
+      function handleButtonClick(event) {
         humanChoice = event.target.id;
         humanOutput.innerHTML = humanChoice;
+      
         const randomNumber = Math.floor(Math.random() * 3) + 1;
 
         if (randomNumber === 1) {
           computerChoice = "steen";
-        }
-        if (randomNumber === 2) {
+        } else if (randomNumber === 2) {
           computerChoice = "papier";
-        }
-        if (randomNumber === 3) {
+        } else {
           computerChoice = "schaar";
         }
 
@@ -72,94 +71,11 @@
             resultOutput.innerHTML = "Gelijkspel!";
           }
         }
-      });
+      }
 
-      papierBtn.addEventListener("click", function (event) {
-        humanChoice = event.target.id;
-        humanOutput.innerHTML = humanChoice;
-      
-        const randomNumber = Math.floor(Math.random() * 3) + 1;
-
-if (randomNumber === 1) {
-  computerChoice = "steen";
-}
-if (randomNumber === 2) {
-  computerChoice = "papier";
-}
-if (randomNumber === 3) {
-  computerChoice = "schaar";
-}
-
-computerOutput.innerHTML = computerChoice;
-if (humanChoice === "Steen") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Gelijkspel!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Computer wint!";
-  } else {
-    resultOutput.innerHTML = "Jij wint!";
-  }
-} else if (humanChoice === "Papier") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Jij wint!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Gelijkspel!";
-  } else {
-    resultOutput.innerHTML = "Computer wint!";
-  }
-} else if (humanChoice === "Schaar") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Computer wint!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Jij wint!";
-  } else {
-    resultOutput.innerHTML = "Gelijkspel!";
-  }
-}
-});
-      schaarBtn.addEventListener("click", function (event) {
-        humanChoice = event.target.id;
-        humanOutput.innerHTML = humanChoice;
-      
-        const randomNumber = Math.floor(Math.random() * 3) + 1;
-
-if (randomNumber === 1) {
-  computerChoice = "steen";
-}
-if (randomNumber === 2) {
-  computerChoice = "papier";
-}
-if (randomNumber === 3) {
-  computerChoice = "schaar";
-}
-
-computerOutput.innerHTML = computerChoice;
-if (humanChoice === "Steen") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Gelijkspel!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Computer wint!";
-  } else {
-    resultOutput.innerHTML = "Jij wint!";
-  }
-} else if (humanChoice === "Papier") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Jij wint!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Gelijkspel!";
-  } else {
-    resultOutput.innerHTML = "Computer wint!";
-  }
-} else if (humanChoice === "Schaar") {
-  if (computerChoice === "steen") {
-    resultOutput.innerHTML = "Computer wint!";
-  } else if (computerChoice === "papier") {
-    resultOutput.innerHTML = "Jij wint!";
-  } else {
-    resultOutput.innerHTML = "Gelijkspel!";
-  }
-}
-});
+      steenBtn.addEventListener("click", handleButtonClick);
+      papierBtn.addEventListener("click", handleButtonClick);
+      schaarBtn.addEventListener("click", handleButtonClick);
     </script>
   </body>
 </html>
